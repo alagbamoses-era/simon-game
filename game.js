@@ -4,6 +4,26 @@ var gamePattern = [];
 var  userClickedPattern = [];
 
 
+var started = false;
+
+
+// initial value of level
+var level = 0;
+
+
+// to detect when a keyboard has been pressed
+$(document.keypress(function() {
+    if (!started) {
+        $("#level-title").text("Level " + level);
+        nextSequence();
+        started = true;
+
+    }
+}))
+
+
+
+
 $(".btn").click(function () {
 
     var userChosenColour = $(this.attr("id"));
@@ -46,3 +66,7 @@ function animatePress(currentColour) {
     }, 100)
 
 }
+
+
+
+
